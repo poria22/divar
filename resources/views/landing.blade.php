@@ -30,6 +30,14 @@
                         </ul>
                     </li>
                 </form>
+                <form action="{{route('landing.search')}}" method="get">
+                    <li class="nav-item" style="display: inline-block" >
+                        <input name="search" type="text" class="form-control" placeholder="">
+                    </li>
+                    <li class="nav-item" style="display: inline-block">
+                        <button type="submit" class="btn btn-outline-secondary" >جست و جو</button>
+                    </li>
+                </form>
             </ul>
         </div>
         <div class="col-12">
