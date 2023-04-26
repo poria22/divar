@@ -29,6 +29,12 @@ class LandingController extends Controller
         if ($request->category){
             $advertisings=Advertising::where('category_id','=',$request->category)->get();
         }
+        if (isset($request->search)){
+            $advertisings=Advertising::where(function ($query) use ($request){
+                $query->where('title','LIKE',"%{$request->search}%")->orWhere('content','LIKE',"%{$request->search}%");
+            })->paginate(5);
+
+        }
 
         return view('landing',compact(['advertisings','categories']));
 
